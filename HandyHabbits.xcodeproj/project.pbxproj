@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		30006FBB2BFFD71200C0B11F /* BluButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30006FBA2BFFD71200C0B11F /* BluButtonView.swift */; };
+		30006FBE2BFFD88400C0B11F /* MyHabbits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30006FBC2BFFD88400C0B11F /* MyHabbits.xcdatamodeld */; };
+		303658302C065B7C00CE3233 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036582F2C065B7C00CE3233 /* ViewModel.swift */; };
+		303658332C065F0A00CE3233 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658322C065F0A00CE3233 /* CoreDataManager.swift */; };
+		303658352C06658E00CE3233 /* HabbitsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658342C06658E00CE3233 /* HabbitsCellView.swift */; };
+		303658372C066E9A00CE3233 /* CreateHabbitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658362C066E9A00CE3233 /* CreateHabbitView.swift */; };
 		30BF3BEF2BFFA344000E6256 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF3BEE2BFFA344000E6256 /* AppDelegate.swift */; };
 		30BF3BF12BFFA344000E6256 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF3BF02BFFA344000E6256 /* SceneDelegate.swift */; };
 		30BF3BF32BFFA344000E6256 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF3BF22BFFA344000E6256 /* ViewController.swift */; };
@@ -19,6 +24,11 @@
 
 /* Begin PBXFileReference section */
 		30006FBA2BFFD71200C0B11F /* BluButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluButtonView.swift; sourceTree = "<group>"; };
+		30006FBD2BFFD88400C0B11F /* MyHabbits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHabbits.xcdatamodel; sourceTree = "<group>"; };
+		3036582F2C065B7C00CE3233 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		303658322C065F0A00CE3233 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		303658342C06658E00CE3233 /* HabbitsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitsCellView.swift; sourceTree = "<group>"; };
+		303658362C066E9A00CE3233 /* CreateHabbitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabbitView.swift; sourceTree = "<group>"; };
 		30BF3BEB2BFFA344000E6256 /* HandyHabbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyHabbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30BF3BEE2BFFA344000E6256 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30BF3BF02BFFA344000E6256 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -45,8 +55,26 @@
 			isa = PBXGroup;
 			children = (
 				30006FBA2BFFD71200C0B11F /* BluButtonView.swift */,
+				303658342C06658E00CE3233 /* HabbitsCellView.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		3036582E2C065B6200CE3233 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3036582F2C065B7C00CE3233 /* ViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		303658312C065EEE00CE3233 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				30006FBC2BFFD88400C0B11F /* MyHabbits.xcdatamodeld */,
+				303658322C065F0A00CE3233 /* CoreDataManager.swift */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 		30BF3BE22BFFA344000E6256 = {
@@ -68,6 +96,8 @@
 		30BF3BED2BFFA344000E6256 /* HandyHabbits */ = {
 			isa = PBXGroup;
 			children = (
+				303658312C065EEE00CE3233 /* CoreData */,
+				3036582E2C065B6200CE3233 /* ViewModel */,
 				30006FB92BFFD6F300C0B11F /* Helpers */,
 				30BF3C022BFFA36A000E6256 /* View */,
 				30BF3BEE2BFFA344000E6256 /* AppDelegate.swift */,
@@ -85,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				30BF3C032BFFA38D000E6256 /* MyHabbitsView.swift */,
+				303658362C066E9A00CE3233 /* CreateHabbitView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -161,10 +192,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				30BF3C042BFFA38D000E6256 /* MyHabbitsView.swift in Sources */,
+				30006FBE2BFFD88400C0B11F /* MyHabbits.xcdatamodeld in Sources */,
+				303658372C066E9A00CE3233 /* CreateHabbitView.swift in Sources */,
+				303658352C06658E00CE3233 /* HabbitsCellView.swift in Sources */,
 				30006FBB2BFFD71200C0B11F /* BluButtonView.swift in Sources */,
 				30BF3BF32BFFA344000E6256 /* ViewController.swift in Sources */,
 				30BF3BEF2BFFA344000E6256 /* AppDelegate.swift in Sources */,
 				30BF3BF12BFFA344000E6256 /* SceneDelegate.swift in Sources */,
+				303658332C065F0A00CE3233 /* CoreDataManager.swift in Sources */,
+				303658302C065B7C00CE3233 /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -397,6 +433,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		30006FBC2BFFD88400C0B11F /* MyHabbits.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				30006FBD2BFFD88400C0B11F /* MyHabbits.xcdatamodel */,
+			);
+			currentVersion = 30006FBD2BFFD88400C0B11F /* MyHabbits.xcdatamodel */;
+			path = MyHabbits.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 30BF3BE32BFFA344000E6256 /* Project object */;
 }

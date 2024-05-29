@@ -23,6 +23,33 @@ final class ViewModel: ObservableObject{
         getHabbits()
     }
     
+    func deleteHabbit(with id: ObjectIdentifier){
+        let request = NSFetchRequest<Habbit>(entityName: "Habbit")
+        do{
+            habbits = try manager.context.fetch(request)
+            
+            guard let habbit = habbits.first(where: { $0.id == id }) else { return  }
+            manager.context.delete(habbit)
+
+        }catch let error {
+            print("Dont updata: \(error.localizedDescription)")
+        }
+        save()
+    }
+    
+    func updataTask(with id: ObjectIdentifier, completed: Bool){
+        let request = NSFetchRequest<Task>(entityName: "Task")
+        do{
+            tasks = try manager.context.fetch(request)
+            
+            let task = tasks.first(where: { $0.id == id })
+            task?.completed = completed
+        }catch let error {
+            print("Dont updata: \(error.localizedDescription)")
+        }
+        save()
+    }
+    
     func getHabbits(){
         let request = NSFetchRequest<Habbit>(entityName: "Habbit")
             

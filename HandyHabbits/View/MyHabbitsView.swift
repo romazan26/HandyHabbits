@@ -23,12 +23,13 @@ struct MyHabbitsView: View {
                     HStack {
                         Text("My habbits")
                             .font(.system(size: 24, weight: .bold))
-                        .foregroundStyle(.white)
+                            .foregroundStyle(.white)
                         Toggle(isOn: $isOn) {
                             /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label@*/Text("Label")/*@END_MENU_TOKEN@*/
                         }
                     }.padding()
                     Spacer()
+                    
                     //MARK: - Habbits List
                     if vm.habbits.isEmpty
                     {
@@ -36,9 +37,10 @@ struct MyHabbitsView: View {
                     }else{
                         ScrollView {
                             ForEach(vm.habbits) { habbit in
-                                HabbitsCellView(habbit: habbit)
+                                HabbitsCellView(habbit: habbit, viewModel: vm)
                             }
                         }
+                        .animation(.bouncy)
                     }
                     Spacer()
                     NavigationLink {
@@ -46,8 +48,6 @@ struct MyHabbitsView: View {
                     } label: {
                         BluButtonView(text: "New habbits")
                     }
-
-                   
                 }
             }
         }

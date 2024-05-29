@@ -106,17 +106,19 @@ struct CreateHabbitView: View {
                 }
                 Spacer()
                 Button(action: {
-                    
                     vm.addHabbit()
                     vm.addTask(simpleTask: vm.simpleTaskName1)
                     vm.addTask(simpleTask: vm.simpleTaskName2)
                     vm.addTask(simpleTask: vm.simpleTaskName3)
+                    
+                    dismiss()
                 }, label: {
                     BluButtonView(text: "Create")
                 })
                
             }
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

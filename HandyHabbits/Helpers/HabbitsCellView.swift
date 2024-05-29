@@ -9,6 +9,8 @@ import SwiftUI
 
 struct HabbitsCellView: View {
     let habbit: Habbit
+    
+    @StateObject var viewModel: ViewModel
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -23,8 +25,14 @@ struct HabbitsCellView: View {
                 }
                 .frame(width: 84, height: 30)
                 .cornerRadius(8)
+                
                 Spacer()
-                Text("Delete").foregroundStyle(.blue.opacity(0.6))
+                
+                //MARK: - Delete button
+                Button(action: {viewModel.deleteHabbit(with: habbit.id)}, label: {
+                    Text("Delete").foregroundStyle(.blue.opacity(0.6))
+                })
+                
             }
             .padding()
             .foregroundStyle(.white)
@@ -39,13 +47,20 @@ struct HabbitsCellView: View {
                                 .frame(width: 19)
                         }else{
                             Circle().frame(width: 19).foregroundStyle(.gray.opacity(0.5))
+                                .onTapGesture {
+                                    viewModel.updataTask(with: task.id, completed: true)
+                                }
                         }
+                        
+                        //MARK: - Name of task
                         Text("\(task.name ?? "")")
                             .lineLimit(1)
                             .multilineTextAlignment(.leading)
                             .foregroundStyle(.gray)
                             .font(.system(size: 13))
-                    }.padding(.horizontal)
+                    }
+                    .padding(.horizontal)
+                    .padding(.vertical, 3)
                 }
             }
             Spacer()

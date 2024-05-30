@@ -10,7 +10,7 @@ import SwiftUI
 struct MyHabbitsView: View {
     
     @StateObject var vm = ViewModel()
-    @State private var isOn = false
+    @State private var isOn = true
     
     var body: some View {
         NavigationView {
@@ -24,9 +24,9 @@ struct MyHabbitsView: View {
                         Text("My habbits")
                             .font(.system(size: 24, weight: .bold))
                             .foregroundStyle(.white)
-                        Toggle(isOn: $isOn) {
-                            /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Label@*/Text("Label")/*@END_MENU_TOKEN@*/
-                        }
+                        Spacer()
+                        Toggle("", isOn: $isOn)
+                            .toggleStyle(CustonToggleStyle())
                     }.padding()
                     Spacer()
                     
@@ -34,13 +34,20 @@ struct MyHabbitsView: View {
                     if vm.habbits.isEmpty
                     {
                         Text("Empty").foregroundStyle(.gray)
-                    }else{
+                    }else if isOn {
                         ScrollView {
                             ForEach(vm.habbits) { habbit in
                                 HabbitsCellView(habbit: habbit, viewModel: vm)
+                                    
+
                             }
                         }
-                        .animation(.bouncy)
+                    } else {
+                        ScrollView {
+                            ForEach(vm.habbits) { habbit in
+                                HabbitsCellSmallView(habbit: habbit, viewModel: vm)
+                            }
+                        }
                     }
                     Spacer()
                     NavigationLink {
@@ -50,10 +57,49 @@ struct MyHabbitsView: View {
                     }
                 }
             }
+            .animation(.spring, value: isOn)
+            .animation(.easeIn, value: vm.habbits)
         }
     }
 }
 
 #Preview {
     MyHabbitsView()
+}
+
+struct CustonToggleStyle: ToggleStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        let isOn = configuration.isOn
+        
+        return ZStack{
+            RoundedRectangle(cornerRadius: 27)
+                .frame(width: 105, height: 40)
+                .foregroundStyle(.cell)
+            HStack{
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: 49, height: 32)
+                    .foregroundStyle(isOn ? .bluButton : .cell)
+                    RoundedRectangle(cornerRadius: 2)
+                        .frame(width: 19, height: 19)
+                        .foregroundStyle(isOn ? .white : .gray)
+                }
+                .onTapGesture {
+                    configuration.isOn = true
+                }
+                ZStack {
+                    RoundedRectangle(cornerRadius: 16)
+                        .frame(width: 49, height: 32)
+                    .foregroundStyle(!isOn ? .bluButton : .cell)
+                    RoundedRectangle(cornerRadius: 2)
+                        .frame(width: 19, height: 12)
+                        .foregroundStyle(!isOn ? .white : .gray)
+                }
+                .onTapGesture {
+                    configuration.isOn = false
+                }
+            }
+        }
+        
+    }
 }

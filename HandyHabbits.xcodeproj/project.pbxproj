@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		30006FBB2BFFD71200C0B11F /* BluButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30006FBA2BFFD71200C0B11F /* BluButtonView.swift */; };
 		30006FBE2BFFD88400C0B11F /* MyHabbits.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 30006FBC2BFFD88400C0B11F /* MyHabbits.xcdatamodeld */; };
+		301E66BE2C07C71C00690A4C /* HabbitsCellSmallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 301E66BD2C07C71C00690A4C /* HabbitsCellSmallView.swift */; };
 		303658302C065B7C00CE3233 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3036582F2C065B7C00CE3233 /* ViewModel.swift */; };
 		303658332C065F0A00CE3233 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658322C065F0A00CE3233 /* CoreDataManager.swift */; };
 		303658352C06658E00CE3233 /* HabbitsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658342C06658E00CE3233 /* HabbitsCellView.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		30006FBA2BFFD71200C0B11F /* BluButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluButtonView.swift; sourceTree = "<group>"; };
 		30006FBD2BFFD88400C0B11F /* MyHabbits.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHabbits.xcdatamodel; sourceTree = "<group>"; };
+		301E66BD2C07C71C00690A4C /* HabbitsCellSmallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitsCellSmallView.swift; sourceTree = "<group>"; };
 		3036582F2C065B7C00CE3233 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		303658322C065F0A00CE3233 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		303658342C06658E00CE3233 /* HabbitsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitsCellView.swift; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 			children = (
 				30006FBA2BFFD71200C0B11F /* BluButtonView.swift */,
 				303658342C06658E00CE3233 /* HabbitsCellView.swift */,
+				301E66BD2C07C71C00690A4C /* HabbitsCellSmallView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -201,6 +204,7 @@
 				30BF3BF12BFFA344000E6256 /* SceneDelegate.swift in Sources */,
 				303658332C065F0A00CE3233 /* CoreDataManager.swift in Sources */,
 				303658302C065B7C00CE3233 /* ViewModel.swift in Sources */,
+				301E66BE2C07C71C00690A4C /* HabbitsCellSmallView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,14 +10,19 @@ import SwiftUI
 struct HabbitsCellView: View {
     let habbit: Habbit
     
+    
     @StateObject var viewModel: ViewModel
+    @State var completed = false
 
     var body: some View {
         VStack(alignment: .leading) {
+           
             //MARK: - Title
             HStack(spacing: 20) {
+                
                 Text("\(habbit.name ?? "")")
                     .font(.system(size: 15, weight: .bold))
+                    
                 ZStack{
                     Color.colorApp
                     Text("\(habbit.date ?? Date.now)")
@@ -37,7 +42,7 @@ struct HabbitsCellView: View {
             .padding()
             .foregroundStyle(.white)
             
-            //MARK: - Tast List
+            //MARK: - Task List
             if let tasks = habbit.tasks?.allObjects as? [Task] {
                 ForEach(tasks) { task in
                     HStack{
@@ -49,6 +54,8 @@ struct HabbitsCellView: View {
                             Circle().frame(width: 19).foregroundStyle(.gray.opacity(0.5))
                                 .onTapGesture {
                                     viewModel.updataTask(with: task.id, completed: true)
+                                    viewModel.checkingForCompletedTasks(orHabbit: habbit)
+                                    completed = viewModel.isComleted
                                 }
                         }
                         
@@ -66,10 +73,16 @@ struct HabbitsCellView: View {
             Spacer()
             
         }
+        .opacity(completed ? 0.2 : 1)
+        .onAppear(perform: {
+            viewModel.checkingForCompletedTasks(orHabbit: habbit)
+            completed = viewModel.isComleted
+        })
         .frame(width: 356, height: 169)
         .background {
             Color(.cell).cornerRadius(13)
         }
+        
     }
 }
 

@@ -38,8 +38,6 @@ struct MyHabbitsView: View {
                         ScrollView {
                             ForEach(vm.habbits) { habbit in
                                 HabbitsCellView(habbit: habbit, viewModel: vm)
-                                    
-
                             }
                         }
                     } else {
@@ -50,6 +48,8 @@ struct MyHabbitsView: View {
                         }
                     }
                     Spacer()
+                    
+                    //MARK: - Newhabbits button
                     NavigationLink {
                         CreateHabbitView(vm: vm)
                     } label: {
@@ -67,6 +67,7 @@ struct MyHabbitsView: View {
     MyHabbitsView()
 }
 
+//MARK: - CustonToggleStyle
 struct CustonToggleStyle: ToggleStyle {
     func makeBody(configuration: Configuration) -> some View {
         let isOn = configuration.isOn

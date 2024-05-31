@@ -11,6 +11,7 @@ struct HabbitsCellSmallView: View {
     let habbit: Habbit
     
     @StateObject var viewModel: ViewModel
+    @State var completed = false
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -20,7 +21,7 @@ struct HabbitsCellSmallView: View {
                     .font(.system(size: 15, weight: .bold))
                 ZStack{
                     Color.colorApp
-                    Text("\(habbit.date ?? Date.now)")
+                    Text(Dateformatter(date: habbit.date ?? Date.now))
                         .font(.system(size: 14, weight: .bold))
                 }
                 .frame(width: 84, height: 30)
@@ -37,11 +38,22 @@ struct HabbitsCellSmallView: View {
             .padding()
             .foregroundStyle(.white)
             
-        }        
+        } 
+        .opacity(completed ? 0.4 : 1)
+        .onAppear(perform: {
+            viewModel.checkingForCompletedTasks(orHabbit: habbit)
+            completed = viewModel.isComleted
+        })
         .frame(width: 356, height: 50)
         .background {
             Color(.cell).cornerRadius(13)
         }
+    }
+    
+    private func Dateformatter(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d.M.yyyy"
+        return dateFormatter.string(from: date)
     }
 }
 

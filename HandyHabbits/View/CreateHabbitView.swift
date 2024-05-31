@@ -12,10 +12,15 @@ struct CreateHabbitView: View {
     @Environment(\.dismiss) var dismiss
     @StateObject var vm: ViewModel
     @State private var tasktextField = 1
+    @FocusState private var keyboardIsFocused: Bool
+    
     var body: some View {
         ZStack {
             //MARK: - Background
             Color(.colorApp).ignoresSafeArea()
+                .onTapGesture {
+                    keyboardIsFocused = false
+                }
             VStack {
                 //MARK: - Toolbar
                 HStack(spacing: 20){
@@ -49,6 +54,7 @@ struct CreateHabbitView: View {
                             .cornerRadius(13)
                             
                     })
+                    .focused($keyboardIsFocused)
                     .foregroundStyle(.white)
                     .padding()
                     .frame(width: 356, height: 63)
@@ -62,6 +68,7 @@ struct CreateHabbitView: View {
                                 .cornerRadius(13)
                                 
                         })
+                        .focused($keyboardIsFocused)
                         .foregroundStyle(.white)
                         .padding()
                         .frame(width: 356, height: 63)
@@ -74,6 +81,7 @@ struct CreateHabbitView: View {
                                 .cornerRadius(13)
                                 
                         })
+                        .focused($keyboardIsFocused)
                         .foregroundStyle(.white)
                         .padding()
                         .frame(width: 356, height: 63)
@@ -86,6 +94,7 @@ struct CreateHabbitView: View {
                                 .cornerRadius(13)
                                 
                         })
+                        .focused($keyboardIsFocused)
                         .foregroundStyle(.white)
                         .padding()
                         .frame(width: 356, height: 63)
@@ -118,6 +127,7 @@ struct CreateHabbitView: View {
                
             }
         }
+        
         .navigationBarBackButtonHidden(true)
     }
 }

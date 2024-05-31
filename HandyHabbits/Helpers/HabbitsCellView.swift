@@ -25,7 +25,7 @@ struct HabbitsCellView: View {
                     
                 ZStack{
                     Color.colorApp
-                    Text("\(habbit.date ?? Date.now)")
+                    Text(Dateformatter(date: habbit.date ?? Date.now))
                         .font(.system(size: 14, weight: .bold))
                 }
                 .frame(width: 84, height: 30)
@@ -73,7 +73,7 @@ struct HabbitsCellView: View {
             Spacer()
             
         }
-        .opacity(completed ? 0.2 : 1)
+        .opacity(completed ? 0.4 : 1)
         .onAppear(perform: {
             viewModel.checkingForCompletedTasks(orHabbit: habbit)
             completed = viewModel.isComleted
@@ -83,6 +83,13 @@ struct HabbitsCellView: View {
             Color(.cell).cornerRadius(13)
         }
         
+    }
+    
+//MARK: - Dateformatter
+    private func Dateformatter(date: Date) -> String{
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "d.M.yyyy"
+        return dateFormatter.string(from: date)
     }
 }
 

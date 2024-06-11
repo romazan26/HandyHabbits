@@ -24,12 +24,22 @@ struct CreateHabbitView: View {
             VStack {
                 //MARK: - Toolbar
                 HStack(spacing: 20){
-                    Button(action: {dismiss()}, label: {
-                        Image(systemName: "chevron.left")
-                            .resizable()
-                            .frame(width: 10, height: 14)
-                            .foregroundStyle(.white)
+                    Button(action: {
+                        dismiss()
+                    }, label: {
+                        ZStack {
+                            Circle().foregroundStyle(.colorApp)
+                                .frame(width: 20, height: 28)
+                            Image(systemName: "chevron.left")
+                                .resizable()
+                                .frame(width: 13, height: 20)
+                                .foregroundStyle(.white)
+                                .font(.system(.headline))
+                        }
+                            
+                            
                     })
+                    
                     Text("New habbit")
                         .font(.system(size: 24, weight: .bold))
                         .foregroundStyle(.white)
@@ -37,7 +47,7 @@ struct CreateHabbitView: View {
                     Spacer()
                     ZStack{
                         Color.cell
-                        Text("19.05.24  ")
+                        Text(Dateformatter(date: Date.now))
                             .font(.system(size: 14, weight: .bold))
                             .foregroundStyle(.white)
                             .padding()
@@ -47,7 +57,7 @@ struct CreateHabbitView: View {
                 }.padding()
                 
                 //MARK: - Name Habbit
-                TextField("Habbit title", text: $vm.simpleHabbitName)
+                CustonTextFieldView(text: $vm.simpleHabbitName, placeholder: "Habbit title")
                     .background(content: {
                         Color.cell
                             .frame(width: 356, height: 63)
@@ -61,7 +71,7 @@ struct CreateHabbitView: View {
                 
                 //MARK: - task group
                 if tasktextField > 0 {
-                    TextField("Task 1", text: $vm.simpleTaskName1)
+                    CustonTextFieldView(text: $vm.simpleTaskName1, placeholder: "Task 1")
                         .background(content: {
                             Color.cell
                                 .frame(width: 356, height: 63)
@@ -74,7 +84,7 @@ struct CreateHabbitView: View {
                         .frame(width: 356, height: 63)
                 }
                 if tasktextField > 1 {
-                    TextField("Task 2", text: $vm.simpleTaskName2)
+                    CustonTextFieldView(text: $vm.simpleTaskName2, placeholder: "Task 2")
                         .background(content: {
                             Color.cell
                                 .frame(width: 356, height: 63)
@@ -87,7 +97,7 @@ struct CreateHabbitView: View {
                         .frame(width: 356, height: 63)
                 }
                 if tasktextField > 2 {
-                    TextField("Task 3", text: $vm.simpleTaskName3)
+                    CustonTextFieldView(text: $vm.simpleTaskName3, placeholder: "Task 3")
                         .background(content: {
                             Color.cell
                                 .frame(width: 356, height: 63)
@@ -106,7 +116,12 @@ struct CreateHabbitView: View {
                         if tasktextField < 3{
                             tasktextField += 1
                         }
-                    }, label: {Text("+").foregroundStyle(.white)})
+                    }, label: {
+                        ZStack {
+                            Color.colorApp
+                            Text("+").foregroundStyle(.white)
+                        }
+                    })
                     .frame(width: 356, height: 63)
                     .overlay {
                         RoundedRectangle(cornerRadius: 11)
@@ -119,7 +134,8 @@ struct CreateHabbitView: View {
                     vm.addTask(simpleTask: vm.simpleTaskName1)
                     vm.addTask(simpleTask: vm.simpleTaskName2)
                     vm.addTask(simpleTask: vm.simpleTaskName3)
-                    
+                    vm.clear()
+                    tasktextField = 1
                     dismiss()
                 }, label: {
                     BluButtonView(text: "Create")
@@ -130,6 +146,12 @@ struct CreateHabbitView: View {
         
         .navigationBarBackButtonHidden(true)
     }
+    //MARK: - Dateformatter
+        private func Dateformatter(date: Date) -> String{
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "d.M.yyyy"
+            return dateFormatter.string(from: date)
+        }
 }
 
 #Preview {

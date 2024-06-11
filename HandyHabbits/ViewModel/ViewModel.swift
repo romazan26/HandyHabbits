@@ -26,6 +26,15 @@ final class ViewModel: ObservableObject{
         getTasks()
     }
     
+    //MARK: - Clear
+    func clear(){
+        simpleHabbitName = ""
+        simpleTaskName1 = ""
+        simpleTaskName2 = ""
+        simpleTaskName3 = ""
+        isComleted = false
+    }
+    
     //MARK: - CHECK
     func checkingForCompletedTasks(orHabbit habbit: Habbit){
         getTasks()

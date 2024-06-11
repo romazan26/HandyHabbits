@@ -14,6 +14,7 @@
 		303658332C065F0A00CE3233 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658322C065F0A00CE3233 /* CoreDataManager.swift */; };
 		303658352C06658E00CE3233 /* HabbitsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658342C06658E00CE3233 /* HabbitsCellView.swift */; };
 		303658372C066E9A00CE3233 /* CreateHabbitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 303658362C066E9A00CE3233 /* CreateHabbitView.swift */; };
+		308B1C942C18D1900055ADDC /* CustonTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308B1C932C18D1900055ADDC /* CustonTextFieldView.swift */; };
 		30BF3BEF2BFFA344000E6256 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF3BEE2BFFA344000E6256 /* AppDelegate.swift */; };
 		30BF3BF12BFFA344000E6256 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF3BF02BFFA344000E6256 /* SceneDelegate.swift */; };
 		30BF3BF32BFFA344000E6256 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30BF3BF22BFFA344000E6256 /* ViewController.swift */; };
@@ -31,6 +32,7 @@
 		303658322C065F0A00CE3233 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		303658342C06658E00CE3233 /* HabbitsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabbitsCellView.swift; sourceTree = "<group>"; };
 		303658362C066E9A00CE3233 /* CreateHabbitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateHabbitView.swift; sourceTree = "<group>"; };
+		308B1C932C18D1900055ADDC /* CustonTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustonTextFieldView.swift; sourceTree = "<group>"; };
 		30BF3BEB2BFFA344000E6256 /* HandyHabbits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HandyHabbits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30BF3BEE2BFFA344000E6256 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30BF3BF02BFFA344000E6256 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				30006FBA2BFFD71200C0B11F /* BluButtonView.swift */,
 				303658342C06658E00CE3233 /* HabbitsCellView.swift */,
 				301E66BD2C07C71C00690A4C /* HabbitsCellSmallView.swift */,
+				308B1C932C18D1900055ADDC /* CustonTextFieldView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				30006FBE2BFFD88400C0B11F /* MyHabbits.xcdatamodeld in Sources */,
 				303658372C066E9A00CE3233 /* CreateHabbitView.swift in Sources */,
 				303658352C06658E00CE3233 /* HabbitsCellView.swift in Sources */,
+				308B1C942C18D1900055ADDC /* CustonTextFieldView.swift in Sources */,
 				30006FBB2BFFD71200C0B11F /* BluButtonView.swift in Sources */,
 				30BF3BF32BFFA344000E6256 /* ViewController.swift in Sources */,
 				30BF3BEF2BFFA344000E6256 /* AppDelegate.swift in Sources */,
